@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebGL_Pong</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+
+<canvas id="c"></canvas>
+
+<script id="2d-vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 a_position;
+
+    uniform mat4 u_matrix;
+
+    void main() {
+        //Multiply the position by the matrix.
+        gl_Position = u_matrix * a_position;
+    }
+</script>
+
+<script id="2d-fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+
+    uniform vec4 u_color;
+
+    void main () {
+        gl_FragColor = u_color;
+    }
+</script>
+
+<script src="webgl_pong.js"></script>
+
+</body>
+</html>
